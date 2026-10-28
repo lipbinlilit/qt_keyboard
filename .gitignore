@@ -1,0 +1,7 @@
+build/
+build_*/
+.cache/
+*.user
+*.exe
+*.o
+*.obj
