@@ -10,7 +10,7 @@
 #include "keyboard_data.hpp"
 #include "key_data.hpp"
 
-namespace biv {
+namespace pve {
 	class KeyBoard : public QWidget {
 		private:
 			const int button_width;
