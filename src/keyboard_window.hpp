@@ -3,6 +3,7 @@
 #include <cstddef>
 
 #include <QKeyEvent>
+#include <QLabel>
 #include <QLineEdit>
 #include <QWidget>
 
@@ -12,6 +13,7 @@ namespace pve {
 	class KeyBoardWindow : public QWidget {
 		Q_OBJECT
 		private:
+			QLabel* image;
 			QLineEdit* display;
 			KeyBoard* keyboard;
 

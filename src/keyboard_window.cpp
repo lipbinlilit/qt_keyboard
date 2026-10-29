@@ -13,7 +13,7 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
     setWindowTitle("Грустная Клавиатура");
 	
 	QPixmap pixmap("img/grustnii-smail.png");
-	QLabel* image = new QLabel(this);
+	image = new QLabel(this);
 	image->setFixedSize(200, 200);
 	image->setPixmap(pixmap);
 	image->setScaledContents(true);
@@ -44,6 +44,12 @@ void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
 }
 
 void KeyBoardWindow::process_key(const int key) {
+	if (display->text() == "Помоги мне заработать лучше...") {
+		display->clear();
+		image->setPixmap(QPixmap("img/veselii-smail.png"));
+		setWindowTitle("Весёлая Клавиатура");
+	}
+
 	if (keyboard->is_key_allowed(key)) {
 		display->setText(display->text() + keyboard->get_key_text(key));
 		keyboard->animate_button(key);
