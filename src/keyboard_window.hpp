@@ -10,6 +10,7 @@
 
 namespace pve {
 	class KeyBoardWindow : public QWidget {
+		Q_OBJECT
 		private:
 			QLineEdit* display;
 			KeyBoard* keyboard;
@@ -19,5 +20,8 @@ namespace pve {
 			
 		protected:
 			void keyPressEvent(QKeyEvent* event) override;
+
+		private slots:
+			void process_key(const int key);
 	};
 }

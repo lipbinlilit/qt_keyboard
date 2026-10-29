@@ -34,10 +34,16 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	main_layout->addLayout(smail_layout);
     main_layout->addWidget(display);
     main_layout->addWidget(keyboard);
+
+	connect(keyboard, &KeyBoard::key_clicked, this, &KeyBoardWindow::process_key);
 }
 
 void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
 	const int key = event->nativeVirtualKey();
+	process_key(key);
+}
+
+void KeyBoardWindow::process_key(const int key) {
 	if (keyboard->is_key_allowed(key)) {
 		display->setText(display->text() + keyboard->get_key_text(key));
 		keyboard->animate_button(key);

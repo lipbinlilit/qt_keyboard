@@ -54,6 +54,12 @@ KeyBoard::KeyBoard(const int width, QWidget* parent)
 	buttons[32] = space;
 	space->setMinimumSize(8 * button_width, button_width);
 	keys_layout->addWidget(space, 8, 7, 2, 16);
+
+	for (const auto& [code, btn] : buttons) {
+		connect(btn, &KeyBoardButton::mouse_clicked, this, [this, code]() {
+			emit key_clicked(code);
+		});
+	}
 }
 
 void KeyBoard::animate_button(const int code) {

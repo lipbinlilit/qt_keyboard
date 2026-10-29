@@ -11,3 +11,8 @@ KeyBoardButton::KeyBoardButton(const QString& text, QWidget* parent)
 	setText(text);
 	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 }
+
+void KeyBoardButton::mousePressEvent(QMouseEvent* event) {
+	QPushButton::mousePressEvent(event);
+	emit mouse_clicked();
+}

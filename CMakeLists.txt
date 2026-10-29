@@ -15,9 +15,12 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(PROJECT_SOURCES
         src/main.cpp
 		src/keyboard.cpp
+		src/keyboard.hpp
 		src/keyboard_button.cpp
+		src/keyboard_button.hpp
 		src/keyboard_data.cpp
 		src/keyboard_window.cpp
+		src/keyboard_window.hpp
 		src/start_window.cpp
 		src/start_window.hpp
 )
