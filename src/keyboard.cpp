@@ -16,6 +16,7 @@ KeyBoard::KeyBoard(const int width, QWidget* parent)
 	
 	KeyBoardButton* backspace_btn = new KeyBoardButton("Удалить");
 	backspace_btn->setMinimumSize(2 * button_width, button_width);
+	buttons[8] = backspace_btn;
 	keys_layout->addWidget(backspace_btn, 0, 26, 2, 3);
 
 	// 2-я линия
@@ -34,6 +35,7 @@ KeyBoard::KeyBoard(const int width, QWidget* parent)
 	
 	KeyBoardButton* enter_btn = new KeyBoardButton("Enter");
 	enter_btn->setMinimumSize(2 * button_width, button_width);
+	buttons[13] = enter_btn;
 	keys_layout->addWidget(enter_btn, 4, 26, 2, 3);
 	
 	// 4-я линия
@@ -49,6 +51,7 @@ KeyBoard::KeyBoard(const int width, QWidget* parent)
 
 	// 5-я линия
 	KeyBoardButton* space = new KeyBoardButton();
+	buttons[32] = space;
 	space->setMinimumSize(8 * button_width, button_width);
 	keys_layout->addWidget(space, 8, 7, 2, 16);
 }

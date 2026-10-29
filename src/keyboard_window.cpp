@@ -25,6 +25,7 @@ KeyBoardWindow::KeyBoardWindow(QWidget* parent) : QWidget(parent) {
 	display->setMinimumHeight(80);
 	display->setFont(QFont("Roboto", 40));
     display->setReadOnly(true);
+	display->setFocusPolicy(Qt::NoFocus);
 	display->setText("Помоги мне заработать лучше...");
 
 	keyboard = new KeyBoard(keyboard_width);
@@ -39,6 +40,20 @@ void KeyBoardWindow::keyPressEvent(QKeyEvent* event) {
 	const int key = event->nativeVirtualKey();
 	if (keyboard->is_key_allowed(key)) {
 		display->setText(display->text() + keyboard->get_key_text(key));
+		keyboard->animate_button(key);
+	}
+	else if(key==32){
+		display->setText(display->text() + keyboard->get_key_text(key) + " ");
+		keyboard->animate_button(key);
+	}
+	else if(key==8){
+		QString text = display->text();
+		text.chop(1);
+		display->setText(text);
+		keyboard->animate_button(key);
+	}
+	else if(key==13){
+		display->clear();
 		keyboard->animate_button(key);
 	}
 }

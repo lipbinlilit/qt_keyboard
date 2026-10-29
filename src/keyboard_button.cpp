@@ -6,6 +6,7 @@ using pve::KeyBoardButton;
 
 KeyBoardButton::KeyBoardButton(const QString& text, QWidget* parent)
     : QPushButton(parent) {
+	setFocusPolicy(Qt::NoFocus);
 	setFont(QFont("Roboto", 20));
 	setText(text);
 	setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
